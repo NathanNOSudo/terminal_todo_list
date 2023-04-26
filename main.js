@@ -20,6 +20,13 @@ const displayTodos = () => {
         console.log(todo);
     });
     }
+
+// toggle completion status of a todo
+const toggleTodo = (index) => {
+    todos[index].completed = !todos[index].completed;
+    fs.writeFileSync('./todos.json', JSON.stringify(todos));
+}
+
 // add a todo
 const addTodo = (todo) => {
     todos.push(todo);
@@ -54,17 +61,21 @@ else if (command === 'change') {
 else if (command === 'delete') {
     deleteTodo();
 }
+else if (command === 'toggle') {
+    toggleTodo(index);
+}
 else {
     // Greet the user
-    console.log('Welcome to the todo app');
-    console.log('Please feel free to fork this repo and make your own todo app');
+    console.log('Welcome to the todo app, Here are the commands:');
+    console.log('----------------------------------------------');
     // list the available commands in the terminal
-    console.log('display - display the todos');
-    console.log('add - add a todo');
-    console.log('change - change a todo');
-    console.log('delete - delete a todo');
+    console.log('display - Display the todos list');
+    console.log('add - Add a new todo item');
+    console.log('change - Change a todo item');
+    console.log('delete - Delete a todo item');
+    console.log('----------------------------------------------');
 }
 
-// to run this file in the terminal type `node main.js` and then the command you want to run.
-// for example `node main.js` display will display the todos
+// to run this file in the terminal type `node main.js` and a list of commands will be displayed
+//  to use with a command here is an example: `node main.js` display will display the todos
 
