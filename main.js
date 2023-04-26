@@ -47,13 +47,13 @@ const command = process.argv[2];
 // set index to do the index of the todo
 const index = process.argv[3];
 // set todo to the todo
-const todo = process.argv[4];
+const todo = process.argv.slice(3).join(' ');
 
 if (command === 'display') {
     displayTodos();
 }
 else if (command === 'add') {
-    addTodo();
+    addTodo(todo);
 }
 else if (command === 'change') {
     changeTodo();
