@@ -1,0 +1,18 @@
+[
+    {
+      "todo": "Buy groceries",
+      "completed": false
+    },
+    {
+      "todo": "Finish homework",
+      "completed": false
+    },
+    {
+      "todo": "Call mom",
+      "completed": true
+    },
+    {
+      "todo": "Pay electricity bill",
+      "completed": false
+    }
+  ]
