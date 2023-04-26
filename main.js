@@ -16,10 +16,10 @@ const fs = require('fs');
 // display todos
 const displayTodos = () => {
     // loop through the todos array and log each todo
-    todos.forEach(todo => {
-        console.log(todo);
+    todos.forEach((todo, index) => {
+        console.log(`${index}. ${todo.todo} (${todo.completed ? 'Completed' : 'Not Completed'})`);
     });
-    }
+}
 
 // toggle completion status of a todo
 const toggleTodo = (index) => {
@@ -33,8 +33,9 @@ const addTodo = (todo) => {
     fs.writeFileSync('./todos.json', JSON.stringify(todos));
 }
 // change a todo
-const changeTodo = (index, todo) => {
-    todos[index] = todo;
+const changeTodo = (index, newTodo) => {
+    console.log(`Index: ${index}, NewTodo: ${newTodo}`);
+    todos[index].todo = newTodo;
     fs.writeFileSync('./todos.json', JSON.stringify(todos));
 }
 // delete a todo
@@ -47,7 +48,7 @@ const command = process.argv[2];
 // set index to do the index of the todo
 const index = process.argv[3];
 // set todo to the todo
-const todo = process.argv.slice(3).join(' ');
+const todo = process.argv.slice(4).join(' ');
 
 if (command === 'display') {
     displayTodos();
@@ -56,10 +57,10 @@ else if (command === 'add') {
     addTodo(todo);
 }
 else if (command === 'change') {
-    changeTodo();
+    changeTodo(index, todo);
 }
 else if (command === 'delete') {
-    deleteTodo();
+    deleteTodo(index);
 }
 else if (command === 'toggle') {
     toggleTodo(index);

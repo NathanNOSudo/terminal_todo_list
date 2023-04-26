@@ -1,1 +1,7 @@
-[{"todo":"kiss my cats","completed":true},{"todo":"study for test","completed":false},{"todo":"pick up kids","completed":false},{"todo":"do something crazy","completed":false}]
+[
+    { "todo": "Buy groceries", "completed": false },
+    { "todo": "Finish homework", "completed": true },
+    { "todo": "Call mom", "completed": true },
+    { "todo": "Pay electricity bill", "completed": false }
+  ]
+  
