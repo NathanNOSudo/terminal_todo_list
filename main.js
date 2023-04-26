@@ -29,7 +29,7 @@ const toggleTodo = (index) => {
 
 // add a todo
 const addTodo = (todo) => {
-    todos.push(todo);
+    todos.push({ todo: todo, completed: false });
     fs.writeFileSync('./todos.json', JSON.stringify(todos));
 }
 // change a todo
